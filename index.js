@@ -17,3 +17,18 @@ client.authorize(function(err, tokens){
         console.log('Connection Successful...');
     }
 });
+
+async function gsrun(cl){
+    const gsapi = google.sheets({version:'v4', auth: cl });
+
+    const opt = {
+        spreadsheetId: '18NmM9GqkKHkeysfgG3_ljjypDbdwuFQG7gec4lxWhGQ',
+        range: '2020 Logs'
+    };
+
+    let data = await gsapi.spreadsheets.values.get(opt);
+    console.log(data.data.values);
+    
+}
+
+gsrun(client);
