@@ -18,7 +18,16 @@ client.authorize(function(err, tokens){
     }
 });
 
-async function gsrun(cl){
+const rowInput = [
+    "Armagedda",
+    "Svindeldjup Attestup", 
+    "Black",
+    "Sweden",
+    "Full Length",
+    "https://armagedda.bandcamp.com/album/svindeldjup-ttestup"
+];
+
+async function gsrun(cl, rowInput){
     const gsapi = google.sheets({version:'v4'});
 
     // const opt = {
@@ -30,17 +39,15 @@ async function gsrun(cl){
     // console.log(fullSheet.data.values);
 
     const request = {
-        // spreadsheetId: '18NmM9GqkKHkeysfgG3_ljjypDbdwuFQG7gec4lxWhGQ',
-        // range: '2020 Logs',
-        spreadsheetId: '1ByqGxCjhGTu7nvQq29FpMI-G3VPajSD6OjWydIgEIdI',
-        range: 'Sheet1',
+        spreadsheetId: '18NmM9GqkKHkeysfgG3_ljjypDbdwuFQG7gec4lxWhGQ',
+        range: '2020 Logs',
+        // spreadsheetId: '1ByqGxCjhGTu7nvQq29FpMI-G3VPajSD6OjWydIgEIdI',
+        // range: 'Sheet1',
         valueInputOption: 'RAW',
         insertDataOption: 'INSERT_ROWS',
 
         resource: {
-            values: [
-                ["testappend", "testappend2"]
-            ]
+            values: [rowInput]
         },
         auth: cl
     }
@@ -54,4 +61,4 @@ async function gsrun(cl){
     
 }
 
-gsrun(client);
+gsrun(client, rowInput);
