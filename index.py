@@ -9,24 +9,18 @@ RANGE = '2020 Logs'
 SHEET_NAME = 'Listen Log'
 WORKING_SHEET = CLIENT.open(SHEET_NAME).sheet1
 ROW_INPUT_DATA = [
-    'Afksky',
-    'Ofte jeg drommer mig dod',
-    'Black',
+    'Cauldron Black Ram',
+    'Slaver',
+    'Death/Thrash',
     'Full Length',
-    'Denmark',
-    'https://vendetta-records.bandcamp.com/album/ofte-jeg-dr-mmer-mig-d-d'
+    'Australia',
+    'https://listen.20buckspin.com/album/slaver'
 ]
 
 def main():
-    # readAllData()
-    appendRow(ROW_INPUT_DATA)
-    # getLastRecord()
-
-def getLastRecord():
-    rowCount = list(filter(None, WORKING_SHEET.col_values(1)))
-    rowCountNum = len(rowCount)
-    lastRecord = WORKING_SHEET.row_values(rowCountNum)
-    print(lastRecord)
+    print(readAllData())
+    # appendRow(ROW_INPUT_DATA)
+    print(getLastRecord())
 
 def appendRow(rowInputData):
     WORKING_SHEET.append_row(rowInputData)
@@ -34,7 +28,16 @@ def appendRow(rowInputData):
 
 def readAllData():
     allData = WORKING_SHEET.get_all_records()
-    print(allData)
+    # print(allData)
+    return allData
+
+def getLastRecord():
+    # rowCount = list(filter(None, WORKING_SHEET.col_values(1)))
+    rowCount = len(readAllData())
+    print(rowCount)
+    # rowCountNum = len(rowCount)
+    lastRecord = WORKING_SHEET.row_values(rowCount + 1)
+    return lastRecord
 
 if __name__ == '__main__':
     main()
