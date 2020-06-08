@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/aaronmccormack15533/GoogleSheetInsertions#readme",
   "dependencies": {
-    "googleapis": "^39.2.0"
+    "googleapis": "^39.2.0",
+    "jquery": "^3.5.1"
   }
 }

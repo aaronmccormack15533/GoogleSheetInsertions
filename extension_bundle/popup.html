@@ -30,8 +30,12 @@
             <label for="comments">Comment</label>
             <input type="text" id="comments" name="comments"><br/>
 
-            <a><button id="submitBtn" class="submit">Submit to Sheets</button></a>
+            <a><button id="submitBtn" class="dropbtn">Submit to Sheets</button></a>
+            <a><button id="getBtn" class="dropbtn">Get</button></a>
+            <script type="text/javascript" src="config.js"></script>
+            <script type="text/javascript" src="popup.js" charset="utf-8"></script>
+        <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){}; handleClientLoad()" 
+                                                                    onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
         </form>
-        <script type="text/javascript" src="popup.js" charset="utf-8"></script>
     </body>
 </html>
